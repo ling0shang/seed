@@ -1,5 +1,15 @@
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
+
 cmake_minimum_required(VERSION 3.20)
 project(seed VERSION 0.1.0 LANGUAGES CXX)
+
+include(FetchContent)
+FetchContent_Declare(
+    doctest
+    GIT_REPOSITORY https://github.com/doctest/doctest.git
+    GIT_TAG v2.5.2
+)
+FetchContent_MakeAvailable(doctest)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,3 +30,6 @@ if(MSVC)
 else()
     target_compile_options(seed PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
+
+enable_testing()
+add_subdirectory(tests)
