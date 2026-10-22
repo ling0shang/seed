@@ -1,0 +1,8 @@
+notes/
+
+
+build/
+out/
+.vs/
+.vscode/
+*.user
