@@ -17,6 +17,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(seed
     src/version.cpp
+    src/string.cpp
 )
 
 target_include_directories(seed PUBLIC
@@ -26,7 +27,7 @@ target_include_directories(seed PUBLIC
 target_compile_features(seed PUBLIC cxx_std_17)
 
 if(MSVC)
-    target_compile_options(seed PRIVATE /W4 /WX)
+    target_compile_options(seed PRIVATE /W4 /WX /utf-8)
 else()
     target_compile_options(seed PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
