@@ -3,8 +3,25 @@ name: CI
 on:
   push:
     branches: [ main, master ]
+    # paths:
+    #   - 'src/**'         # 所有cpp文件
+    #   - 'include/**'     # 所有h文件
+    #   - 'tests/**'       # 所有test文件
+    #   - 'CMakeLists.txt' # CMakeLists.txt文件
+    #   - 'CMakePresets.json' # CMakePresets.json文件
+    #   - '.github/workflows/ci.yml' # CI配置文件
+    paths-ignore:
+      - '**.md'          # 所有md文件
+      - 'docs/**'        # docs目录下全部文件
+      - 'LICENSE'
+      - '.gitignore'
   pull_request:
     branches: [ main, master ]
+    paths-ignore:
+      - '**.md'          # 所有md文件
+      - 'docs/**'        # docs目录下全部文件
+      - 'LICENSE'
+      - '.gitignore'
 
 jobs:
   build:
